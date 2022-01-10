@@ -15,7 +15,7 @@ public class Application {
     public static void playGame() {
         do{
             answerInit();
-            play();
+            game();
 
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             again = Console.readLine();
@@ -24,7 +24,7 @@ public class Application {
         System.out.println("게임 끝");
     }
 
-    public static void play() {
+    public static void game() {
         makeNewRandomNumber();
 
         while(strike != 3) {
