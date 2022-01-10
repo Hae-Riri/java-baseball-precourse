@@ -34,6 +34,15 @@ public class Application {
         return false;
     }
 
+    public static void normalizeInput() {
+        if(input.length() == 2) {
+            input.insert(0,"0");
+        }else if(input.length() == 1) {
+            input.insert(0,"00");
+        }
+    }
+
+
     public static void main(String[] args) {
         // TODO 숫자 야구 게임 구현
     }
