@@ -18,7 +18,7 @@ public class Application {
 
     public static void playGame() {
         do{
-            answerReset();
+            resetStrikeAndBall();
             game();
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             again = Console.readLine();
@@ -27,16 +27,11 @@ public class Application {
         System.out.println("게임 끝");
     }
 
-    public static void answerReset() {
-        ball = 0;
-        strike = 0;
-    }
-
     public static void game() {
         makeNewRandomNumber();
 
         while(strike != 3) {
-            answerReset();
+            resetStrikeAndBall();
 
             System.out.println("숫자를 입력해주세요 : ");
             input.setLength(0);
@@ -54,6 +49,14 @@ public class Application {
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
     }
 
+    /**
+     * 게임 전 초기화
+     */
+    public static void resetStrikeAndBall() {
+        ball = 0;
+        strike = 0;
+    }
+
     public static void makeNewRandomNumber(){
         number.setLength(0);
         Arrays.fill(count, 0);
@@ -64,6 +67,9 @@ public class Application {
         }
     }
 
+    /**
+     * 사용자 입력값 검사
+     */
     private static boolean inputValidation() {
         return !hasOverLength() && !hasSameNumber();
     }
@@ -87,6 +93,9 @@ public class Application {
         return false;
     }
 
+    /**
+     * 스트라이크와 볼 개수 세기
+     */
     public static void countStrikeAndBall() {
         for(int i = 0; i < 3; i++) {
             if(input.charAt(i) == number.charAt(i)) strike++;
@@ -96,6 +105,9 @@ public class Application {
         }
     }
 
+    /**
+     * 답안 출력
+     */
     public static void printAnswer() {
         if (ball == 0 && strike == 0) {
             System.out.println("낫싱");
