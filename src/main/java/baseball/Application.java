@@ -65,6 +65,18 @@ public class Application {
         }
     }
 
+    public static void printAnswer() {
+        if (ball == 0 && strike == 0) {
+            System.out.println("낫싱");
+        }else if(strike > 0 && ball > 0){
+            System.out.println("\n" + strike + "스트라이크 "+ ball + "볼 ");
+        }else if(strike == 0){
+            System.out.println("\n" + ball + "볼");
+        }else if(ball == 0){
+            System.out.println("\n" + strike + "스트라이크");
+        }
+    }
+
     public static void main(String[] args) {
         // TODO 숫자 야구 게임 구현
     }
