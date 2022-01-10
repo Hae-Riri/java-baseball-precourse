@@ -91,7 +91,9 @@ public class Application {
         number.setLength(0);
         Arrays.fill(count, 0);
         for(int i = 0; i < 3; i++){
-            number.append(pickNumberInRange(1, 9));
+            int pickNum = pickNumberInRange(1, 9);
+            number.append(pickNum);
+            count[pickNum]++;
         }
     }
 
