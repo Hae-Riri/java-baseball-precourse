@@ -12,6 +12,18 @@ public class Application {
     static String again;
     static int[] count = new int[10];
 
+    public static void playGame() {
+        do{
+            answerInit();
+            play();
+
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            again = Console.readLine();
+        } while (again.equals("1"));
+
+        System.out.println("게임 끝");
+    }
+
     public static void play() {
         makeNewRandomNumber();
 
