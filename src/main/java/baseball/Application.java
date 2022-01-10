@@ -12,6 +12,28 @@ public class Application {
     static String again;
     static int[] count = new int[10];
 
+    public static void play() {
+        makeNewRandomNumber();
+
+        while(strike != 3) {
+            answerInit();
+
+            System.out.println("숫자를 입력해주세요 : ");
+            input.setLength(0);
+            input.append(Console.readLine());
+
+            if(!checkInputValidation()) {
+                System.out.println("[ERROR] 서로 다른 숫자로 이루어진 세 자리 이하의 값을 입력하세요.");
+                return;
+            }
+
+            countStrikeAndBall();
+            printAnswer();
+        }
+
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+    }
+
     public static void answerInit() {
         ball = 0;
         strike = 0;
