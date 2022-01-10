@@ -56,6 +56,14 @@ public class Application {
         }
     }
 
+    public static void countStrikeAndBall() {
+        for(int i = 0; i < 3; i++) {
+            if(input.charAt(i) == number.charAt(i)) strike++;
+            else if(count[input.charAt(i) - '0'] > 0){
+                ball++;
+            }
+        }
+    }
 
     public static void main(String[] args) {
         // TODO 숫자 야구 게임 구현
