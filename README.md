@@ -8,33 +8,41 @@
 
 ## 기능 목록
 
-#### 게임 진행
-- main
-    - play()를 최초 실행
-    - play()를 사용자 입력값(1,2)에 따라 반복 실행
-- play()
-  - 111에서 999까지의 랜덤값과 사용자 입력값을 받은 후 답 출력
+#### [게임 진행]
+**main**
+- playGame()을 실행
 
-#### 게임 전 초기화
-- answerInit()
-    - 사용자가 값을 입력할 때마다 볼과 스트라이크를 초기화
+**playGame()**
+- 게임을 반복적으로 실행
 
-- makeNewRandomNumber()
-  - 새로운 상대값 설정
+**game()**
+- 랜덤값과 사용자 입력값에 따라 게임 진행
 
-#### 입력값 유효성 검사
-- checkInputValidation()
-    - 사용자 입력값의 유효성 체크정
-    - length 검사 메소드 호출 (hasOverLength())
-    - 반복 숫자 유무 검사 메소드 호출 (hasSameNumber())
-- hasOverLength()
-  - 입력값의 길이가 3을 초과하는지 확인
-- hasSameNumber()
-  - 반복되는 숫자가 존재하는지 확인
+**countStrikeAndBall()**
+- 스트라이크와 볼 수 세서 세팅
 
-#### 답안 도출
-- setStrikeAndBall()
-    - 스트라이크와 볼 수 세서 세팅
+**printAnswer()**
+- 현재 게임에 대한 답 출력
+
+#### [입력값 검사, 정규화]
+**checkInputValidation()**
+- 사용자 입력값의 유효성 체크
+- length 검사 메소드 호출 (hasOverLength())
+- 반복 숫자 유무 검사 메소드 호출 (hasSameNumber())
+
+**hasOverLength()**
+- 입력값의 길이가 3을 초과하는지 확인
+
+**hasSameNumber()**
+- 반복되는 숫자가 존재하는지 확인
+
+**normalizeInput()**
+- 쉬운 비교를 위해 사용자 입력값에 0을 추가해서 자릿수 맞춤
+- 사용자 입력값이 세 자리 수 미만일 경우를 대비한 메소드
   
-- setBall()
-    - 볼 수 세서 세팅
+#### [리셋]
+**answerReset()**
+- 사용자가 값을 입력할 때마다 볼과 스트라이크를 리셋
+
+**makeNewRandomNumber()**
+- 새로운 상대값 설정
