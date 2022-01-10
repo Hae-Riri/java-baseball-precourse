@@ -20,7 +20,6 @@ public class Application {
         do{
             answerReset();
             game();
-
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
             again = Console.readLine();
         } while (again.equals("1"));
@@ -43,12 +42,11 @@ public class Application {
             input.setLength(0);
             input.append(Console.readLine());
 
-            if(!checkInputValidation()) {
-                System.out.println("[ERROR] 서로 다른 숫자로 이루어진 세 자리 이하의 값을 입력하세요.");
+            if(!inputValidation()) {
+                System.out.println("[ERROR] 서로 다른 숫자로 이루어진 세 자리 값을 입력하세요.");
                 return;
             }
 
-            normalizeInput();
             countStrikeAndBall();
             printAnswer();
         }
@@ -66,7 +64,7 @@ public class Application {
         }
     }
 
-    private static boolean checkInputValidation() {
+    private static boolean inputValidation() {
         return !hasOverLength() && !hasSameNumber();
     }
 
@@ -87,14 +85,6 @@ public class Application {
         }
 
         return false;
-    }
-
-    public static void normalizeInput() {
-        if(input.length() == 2) {
-            input.insert(0,"0");
-        }else if(input.length() == 1) {
-            input.insert(0,"00");
-        }
     }
 
     public static void countStrikeAndBall() {
