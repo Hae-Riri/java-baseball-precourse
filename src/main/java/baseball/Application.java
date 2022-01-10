@@ -2,11 +2,15 @@ package baseball;
 
 import static nextstep.utils.Randoms.pickNumberInRange;
 
+import java.util.Arrays;
+import nextstep.utils.Console;
+
 public class Application {
 
     static int ball = 0, strike = 0;
     static StringBuilder number = new StringBuilder(), input = new StringBuilder();
     static String again;
+    static int[] count = new int[10];
 
     public static void answerInit() {
         ball = 0;
@@ -46,6 +50,7 @@ public class Application {
 
     public static void makeNewRandomNumber(){
         number.setLength(0);
+        Arrays.fill(count, 0);
         for(int i = 0; i < 3; i++){
             number.append(pickNumberInRange(1, 9));
         }
