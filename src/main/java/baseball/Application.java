@@ -18,7 +18,7 @@ public class Application {
 
     public static void playGame() {
         do{
-            answerInit();
+            answerReset();
             game();
 
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
@@ -28,11 +28,16 @@ public class Application {
         System.out.println("게임 끝");
     }
 
+    public static void answerReset() {
+        ball = 0;
+        strike = 0;
+    }
+
     public static void game() {
         makeNewRandomNumber();
 
         while(strike != 3) {
-            answerInit();
+            answerReset();
 
             System.out.println("숫자를 입력해주세요 : ");
             input.setLength(0);
@@ -51,9 +56,14 @@ public class Application {
         System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
     }
 
-    public static void answerInit() {
-        ball = 0;
-        strike = 0;
+    public static void makeNewRandomNumber(){
+        number.setLength(0);
+        Arrays.fill(count, 0);
+        for(int i = 0; i < 3; i++){
+            int pickNum = pickNumberInRange(1, 9);
+            number.append(pickNum);
+            count[pickNum]++;
+        }
     }
 
     private static boolean checkInputValidation() {
@@ -84,16 +94,6 @@ public class Application {
             input.insert(0,"0");
         }else if(input.length() == 1) {
             input.insert(0,"00");
-        }
-    }
-
-    public static void makeNewRandomNumber(){
-        number.setLength(0);
-        Arrays.fill(count, 0);
-        for(int i = 0; i < 3; i++){
-            int pickNum = pickNumberInRange(1, 9);
-            number.append(pickNum);
-            count[pickNum]++;
         }
     }
 
