@@ -12,6 +12,10 @@ public class Application {
     static String again;
     static int[] count = new int[10];
 
+    public static void main(String[] args) {
+        playGame();
+    }
+
     public static void playGame() {
         do{
             answerInit();
@@ -39,6 +43,7 @@ public class Application {
                 return;
             }
 
+            normalizeInput();
             countStrikeAndBall();
             printAnswer();
         }
@@ -103,15 +108,11 @@ public class Application {
         if (ball == 0 && strike == 0) {
             System.out.println("낫싱");
         }else if(strike > 0 && ball > 0){
-            System.out.println("\n" + strike + "스트라이크 "+ ball + "볼 ");
+            System.out.println("\n" + strike + "스트라이크 "+ ball + "볼");
         }else if(strike == 0){
             System.out.println("\n" + ball + "볼");
         }else if(ball == 0){
             System.out.println("\n" + strike + "스트라이크");
         }
-    }
-
-    public static void main(String[] args) {
-        // TODO 숫자 야구 게임 구현
     }
 }
