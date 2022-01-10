@@ -1,5 +1,7 @@
 package baseball;
 
+import static nextstep.utils.Randoms.pickNumberInRange;
+
 public class Application {
 
     static int ball = 0, strike = 0;
@@ -39,6 +41,13 @@ public class Application {
             input.insert(0,"0");
         }else if(input.length() == 1) {
             input.insert(0,"00");
+        }
+    }
+
+    public static void makeNewRandomNumber(){
+        number.setLength(0);
+        for(int i = 0; i < 3; i++){
+            number.append(pickNumberInRange(1, 9));
         }
     }
 
