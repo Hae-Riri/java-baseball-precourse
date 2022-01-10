@@ -7,22 +7,32 @@
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
 
 ## 기능 목록
-- main 메소드
+
+#### 게임 진행
+- main
     - play()를 최초 실행
     - play()를 사용자 입력값(1,2)에 따라 반복 실행
+- play()
+  - 111에서 999까지의 랜덤값과 사용자 입력값을 받은 후 답 출력
 
+#### 게임 전 초기화
 - answerInit()
     - 사용자가 값을 입력할 때마다 볼과 스트라이크를 초기화
 
-- play()
-    - 111에서 999까지의 랜덤값과 사용자 입력값을 받은 후 답 출력
-
 - makeNewRandomNumber()
-    - 새로운 상대값 설정
+  - 새로운 상대값 설정
 
+#### 입력값 유효성 검사
 - checkInputValidation()
-    - 사용자 입력값의 유효성 체크
-  
+    - 사용자 입력값의 유효성 체크정
+    - length 검사 메소드 호출 (hasOverLength())
+    - 반복 숫자 유무 검사 메소드 호출 (hasSameNumber())
+- hasOverLength()
+  - 입력값의 길이가 3을 초과하는지 확인
+- hasSameNumber()
+  - 반복되는 숫자가 존재하는지 확인
+
+#### 답안 도출
 - setStrikeAndBall()
     - 스트라이크와 볼 수 세서 세팅
   
